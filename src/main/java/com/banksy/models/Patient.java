@@ -26,7 +26,7 @@ public class Patient {
             inverseJoinColumns = {@JoinColumn( name = "illnessID")}
     )
     private Collection<Illness> illnesses = new ArrayList<Illness>();
-    private boolean isAdmin = false;
+    private boolean admin = false;
 
     public String getFirstName() {
         return firstName;
@@ -61,11 +61,11 @@ public class Patient {
     }
 
     public boolean isAdmin() {
-        return isAdmin;
+        return admin;
     }
 
     public void setAdmin(boolean admin) {
-        isAdmin = admin;
+        this.admin = admin;
     }
 
     public String getLogin() {
