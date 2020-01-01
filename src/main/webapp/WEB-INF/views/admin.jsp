@@ -17,11 +17,11 @@
 <h3>Bonjour <c:out value="${myPatient.firstName} ${myPatient.lastName}"/></h3>
 </p>
 <p>
-    <form method="post" action=""></form>
+    <form method="post" action="search">
     <label>ID du client : </label>
-    <input type="text" name="idClient"><br><br>
+    <input type="number" name="patientID"><br><br>
     <button>Rechercher</button>
-    <button>M.A.J</button>
+    </form>
 </p>
 <p>
 <a href="signup" >Ajouter client</a>

@@ -1,16 +1,31 @@
 package com.banksy.dao;
 
 import com.banksy.models.Illness;
-import com.banksy.models.Patient;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.Collections;
+import java.util.List;
+
+import static com.banksy.constants.DBConstants.entityManagerFactory;
 
 
 public class IllnessDAO {
     public static final EntityManagerFactory DOSSIERMEDICAL = Persistence.createEntityManagerFactory("dossiermedical");
+
+    public static List<Illness> getAllIllnesses() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String query = "select i from Illness i where i.illnessID is not null";
+        TypedQuery<Illness> typedQuery = entityManager.createQuery(query, Illness.class);
+        try {
+            for (Illness i : (typedQuery.getResultList())) {
+                System.out.println(i);
+            }
+            return typedQuery.getResultList();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
 
     public static void addIllness(Illness illness){
         EntityManager entityManager = DOSSIERMEDICAL.createEntityManager();

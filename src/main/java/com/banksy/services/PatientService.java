@@ -16,4 +16,8 @@ public class PatientService {
     public static void addPatientService(Patient patient) {
         PatientDAO.addPatient(patient);
     }
+
+    public static void getPatientService(int patientID) {
+        PatientDAO.getPatient(patientID);
+    }
 }
