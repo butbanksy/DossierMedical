@@ -21,7 +21,11 @@ public class Patient {
     @Column(nullable = false)
     private String password;
     @ManyToMany
-    private Collection<Illness> illnesses = new ArrayList<>();
+    @JoinTable(name = "JOIN_PATIENT_ILLNESS",
+            joinColumns={@JoinColumn(name = "patientID")},
+            inverseJoinColumns = {@JoinColumn( name = "illnessID")}
+    )
+    private Collection<Illness> illnesses = new ArrayList<Illness>();
     private boolean isAdmin = false;
 
     public String getFirstName() {
@@ -48,10 +52,10 @@ public class Patient {
         this.age = age;
     }
 
+
     public Collection<Illness> getIllnesses() {
         return illnesses;
     }
-
     public void setIllnesses(Collection<Illness> illnesses) {
         this.illnesses = illnesses;
     }

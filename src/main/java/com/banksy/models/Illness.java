@@ -14,7 +14,11 @@ public class Illness {
     @Column(name = "nom")
     private String illnessName;
     @ManyToMany
-    private Collection<Patient> patients = new ArrayList<>();
+    @JoinTable(name = "JOIN_PATIENT_ILLNESS",
+            joinColumns={@JoinColumn( name = "illnessID")},
+            inverseJoinColumns = {@JoinColumn(name = "patientID")})
+
+    private Collection<Patient> patients = new ArrayList<Patient>();
 
     public String getIllnessName() {
         return illnessName;
@@ -23,6 +27,7 @@ public class Illness {
     public void setIllnessName(String illnessName) {
         this.illnessName = illnessName;
     }
+
 
     public Collection<Patient> getPatients() {
         return patients;
