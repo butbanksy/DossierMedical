@@ -28,7 +28,7 @@ public class PatientDAO {
         }
         return Collections.emptyList();
     }
-
+    @SuppressWarnings("duplicates")
     public static void addPatient(Patient patient){
         EntityManager entityManager = DOSSIERMEDICAL.createEntityManager();
         EntityTransaction entityTransaction = null;

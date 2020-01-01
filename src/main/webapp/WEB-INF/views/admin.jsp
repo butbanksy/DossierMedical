@@ -1,3 +1,5 @@
+<%@page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: banksy
@@ -11,6 +13,19 @@
     <title>Admin page</title>
 </head>
 <body>
-<h3>This is the admin's dashboard</h3>
+<p>
+<h3>Bonjour <c:out value="${myPatient.firstName} ${myPatient.lastName}"/></h3>
+</p>
+<p>
+    <form method="post" action=""></form>
+    <label>ID du client : </label>
+    <input type="text" name="idClient"><br><br>
+    <button>Rechercher</button>
+    <button>M.A.J</button>
+</p>
+<p>
+<a href="signup" >Ajouter client</a>
+<a href="illness">Ajouter maladie/allergie</a>
+</p>
 </body>
 </html>

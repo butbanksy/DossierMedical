@@ -13,7 +13,7 @@ public class PatientService {
                 .orElseThrow(() -> new PatientNotFoundException("La combinaison de login/mot de passe ne correspond à aucun utilisateur"));
     }
 
-    public static void addPatient(Patient patient) {
+    public static void addPatientService(Patient patient) {
         PatientDAO.addPatient(patient);
     }
 }

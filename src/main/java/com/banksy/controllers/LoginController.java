@@ -25,11 +25,11 @@ public class LoginController extends HttpServlet {
         if (patient != null) {
             try {
                 patient = PatientService.checkLogin(patient.getLogin(), patient.getPassword());
+                req.setAttribute("myPatient", patient);
                 if (patient.isAdmin()){
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/admin.jsp").forward(req, resp);
                 }
                 else{
-                    req.setAttribute("myPatient", patient);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
                 }
             } catch (PatientNotFoundException e) {

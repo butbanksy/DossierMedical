@@ -22,7 +22,7 @@ public class SignUpController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Patient patient = PatientValidator.addPatientValidator(req);
         if (patient != null) {
-            PatientService.addPatient(patient);
+            PatientService.addPatientService(patient);
             this.getServletContext().getRequestDispatcher("/WEB-INF/views/successful.jsp").forward(req, resp);
         }
         else {
