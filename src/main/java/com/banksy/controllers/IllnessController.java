@@ -18,6 +18,7 @@ public class IllnessController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("list", IllnessDAO.getAllIllnesses());
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/add_illness.jsp").forward(req, resp);
     }
 
