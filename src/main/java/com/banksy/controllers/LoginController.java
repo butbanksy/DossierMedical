@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/")
@@ -25,7 +26,8 @@ public class LoginController extends HttpServlet {
         if (patient != null) {
             try {
                 patient = PatientService.checkLogin(patient.getLogin(), patient.getPassword());
-                req.setAttribute("myPatient", patient);
+                HttpSession mySession = req.getSession();
+;               mySession.setAttribute("myPatient", patient);
                 if (patient.isAdmin()){
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/admin.jsp").forward(req, resp);
                 }

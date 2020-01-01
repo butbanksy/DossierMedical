@@ -13,28 +13,39 @@
     <title>Ajouter une maladie/allergie</title>
 </head>
 <body>
-<h3>Ajouter une maladie/allergie</h3>
-<p>
-    <form action="illness" method="post">
-    <label>Nom maladie : </label>
-    <input type="text" name="illnessName"> <br><br>
-    <button>Ajouter</button>
+<c:choose>
+    <c:when test="${empty myPatient}">
+        NOT signed in
+    </c:when>
+    <c:when test="${!myPatient.admin}">
+        NOT an admin
+    </c:when>
+    <c:otherwise>
+        <h3>Ajouter une maladie/allergie</h3>
+        <p>
+        <form action="illness" method="post">
+            <label>Nom maladie : </label>
+            <input type="text" name="illnessName"> <br><br>
+            <button>Ajouter</button>
 
-</form>
-</p>
-<p>
-    <table>
-    <tr>
-        <th>ID</th>
-        <th>Maladie/Allergie</th>
-    </tr>
-    <c:forEach items="${list}" var="element">
-    <tr>
-        <td>${element.illnessID}</td>
-        <td>${element.illnessName}</td>
-    </tr>
-    </c:forEach>
-</table>
-</p>
+        </form>
+        </p>
+        <p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Maladie/Allergie</th>
+            </tr>
+            <c:forEach items="${list}" var="element">
+                <tr>
+                    <td>${element.illnessID}</td>
+                    <td>${element.illnessName}</td>
+                </tr>
+            </c:forEach>
+        </table>
+        </p>
+    </c:otherwise>
+</c:choose>
+
 </body>
 </html>
