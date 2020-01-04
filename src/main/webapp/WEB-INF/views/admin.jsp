@@ -22,6 +22,7 @@
     <label>ID du client : </label>
     <input type="number" name="patientID"><br><br>
     <button>Rechercher</button>
+    <button>Update </button>
     </form>
 </p>
 <p>

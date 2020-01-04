@@ -15,10 +15,10 @@
 <body>
 <c:choose>
     <c:when test="${empty myPatient}">
-        NOT signed in
+        <h3>You are not signed in!</h3>
     </c:when>
     <c:when test="${!myPatient.admin}">
-        NOT an admin
+        <h3>You are not allowed to access this page!</h3>
     </c:when>
     <c:otherwise>
         <h3>Ajouter une maladie/allergie</h3>

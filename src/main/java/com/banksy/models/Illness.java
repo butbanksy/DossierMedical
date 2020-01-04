@@ -3,6 +3,7 @@ package com.banksy.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "maladies")
@@ -18,7 +19,7 @@ public class Illness {
             joinColumns={@JoinColumn( name = "illnessID")},
             inverseJoinColumns = {@JoinColumn(name = "patientID")})
 
-    private Collection<Patient> patients = new ArrayList<Patient>();
+    private List<Patient> patients = new ArrayList<>();
 
     public String getIllnessName() {
         return illnessName;
@@ -29,11 +30,11 @@ public class Illness {
     }
 
 
-    public Collection<Patient> getPatients() {
+    public List<Patient> getPatients() {
         return patients;
     }
 
-    public void setPatients(Collection<Patient> patients) {
+    public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
 

@@ -1,5 +1,7 @@
 package com.banksy.validators;
 
+import com.banksy.dao.IllnessDAO;
+import com.banksy.dao.PatientDAO;
 import com.banksy.models.Patient;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ public class PatientValidator {
             patient.setAge(req.getParameter(AGE));
             patient.setLogin(req.getParameter(LOGIN));
             patient.setPassword(req.getParameter(PASSWORD));
+            //patient.setIllnesses(IllnessDAO.getAllIllnesses());
             return patient;
 
         } catch (Exception e) {

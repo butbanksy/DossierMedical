@@ -22,12 +22,18 @@
             <p>Nom: <c:out value="${myPatient.lastName}"/></p>
             <p>Prenom: <c:out value="${myPatient.firstName}"/></p>
             <p>Age: <c:out value="${myPatient.age}"/></p>
-            <h2>Maladie/Allergie</h2>
+
             <table>
                 <tr>
-                    <td>ID</td>
-                    <td>Maladie</td>
+                    <th>ID</th>
+                    <th>Maladie/Allergie</th>
                 </tr>
+                <c:forEach items="${list}" var="element">
+                    <tr>
+                        <td>${element.illnessID}</td>
+                        <td>${element.illnessName}</td>
+                    </tr>
+                </c:forEach>
             </table>
         </c:otherwise>
     </c:choose>

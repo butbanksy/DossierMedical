@@ -2,7 +2,7 @@ package com.banksy.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table (name = "patients")
@@ -25,7 +25,7 @@ public class Patient {
             joinColumns={@JoinColumn(name = "patientID")},
             inverseJoinColumns = {@JoinColumn( name = "illnessID")}
     )
-    private Collection<Illness> illnesses = new ArrayList<Illness>();
+    private List<Illness> illnesses = new ArrayList<>();
     private boolean admin = false;
 
     public String getFirstName() {
@@ -53,10 +53,10 @@ public class Patient {
     }
 
 
-    public Collection<Illness> getIllnesses() {
+    public List<Illness> getIllnesses() {
         return illnesses;
     }
-    public void setIllnesses(Collection<Illness> illnesses) {
+    public void setIllnesses(List<Illness> illnesses) {
         this.illnesses = illnesses;
     }
 

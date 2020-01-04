@@ -4,8 +4,6 @@ import com.banksy.models.Illness;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static com.banksy.constants.DBConstants.*;
-
 public class IllnessValidator {
     public static Illness addIllnessValidator(HttpServletRequest request) {
         try {

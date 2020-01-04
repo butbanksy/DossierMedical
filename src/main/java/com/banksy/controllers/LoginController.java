@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/admin.jsp").forward(req, resp);
                 }
                 else{
+                    mySession.setAttribute("list", patient.getIllnesses());
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
                 }
             } catch (PatientNotFoundException e) {
